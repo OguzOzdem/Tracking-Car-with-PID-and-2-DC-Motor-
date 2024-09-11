@@ -14,8 +14,8 @@ float kp=0.1;
 float kd = 0.2;
 float ki = 0.1;
 double ref = 20;
-double mesafe;
-double sure; 
+double distance;
+double time; 
 double last_time =0;
 double dt;
 
@@ -47,15 +47,15 @@ delayMicroseconds(10);
 digitalWrite(trigPin, HIGH);
 delayMicroseconds(10);
 digitalWrite(trigPin, LOW);
-sure = pulseIn(echoPin, HIGH);
-mesafe = (sure/2) * 0.0343;
+time = pulseIn(echoPin, HIGH);
+distance = (time/2) * 0.0343;
 
-if(mesafe == 0) 
+if(distance == 0) 
 {
   stop();
 }
-Serial.print("mesafe:");
-Serial.println(mesafe);
+Serial.print("Distance:");
+Serial.println(distance);
 
 double now = millis();
 dt = (now - last_time)/1000.00;
